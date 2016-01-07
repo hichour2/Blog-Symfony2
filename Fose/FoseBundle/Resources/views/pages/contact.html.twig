@@ -1,0 +1,111 @@
+{% extends "::default/index.html.twig" %}
+{% block body %}
+	
+	
+		<header class="clearfix">
+		
+		
+
+
+			{% include "FoseFoseBundle:pages:menu.html.twig" %}
+		</header>
+		
+		
+		<!-- MAIN -->
+		<div id="main">	
+			<div class="wrapper clearfix">
+			
+				
+				<h2 class="page-heading"><span>CONTACT</span></h2>	
+	        	
+				<!-- page content -->
+	        	<div id="page-content" class="clearfix">
+					
+				<!-- Map -->
+				<script type="text/javascript" src="{{asset('https://maps.google.com/maps/api/js?sensor=true')}}" /></script>
+				<script type="text/javascript">
+					function initialize() {
+						var latlng = new google.maps.LatLng(34.927215, -2.330582);
+						var myOptions = {
+						  zoom: 17,
+                                                  draggable:true,
+						  center: latlng,
+						  mapTypeId: google.maps.MapTypeId.ROADMAP
+					};
+					var map = new google.maps.Map(document.getElementById("map_canvas"),
+					    myOptions);
+					}
+				</script>
+				
+				<div id="map_canvas"></div>
+				<!-- ENDS Map -->
+				
+				
+	        	
+	        	
+					<div class="map-content">
+						Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+					</div>
+					<aside id="contact-sidebar">
+		        		<div class="block">
+			        		<h4>Address</h4>
+			        		<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor si tincidunt quis, accumsan porttitor, facilisis luctus, mets.</p>
+			        		
+			        		<ul class="address-block">
+			        			<li class="address">Address line, city, state ZIP</li>
+			        			<li class="phone">+123 456 789</li>
+			        			<li class="mobile">+123 456 789</li>
+			        			<li class="email"><a href="#">email@server.com</a></li>
+			        		</ul>
+			        		
+		        		</div>	        	
+		        	</aside>
+					<!-- form -->
+					<script type="text/javascript" src="{{asset('bundles/fosefose/pages/js/form-validation.js')}}"></script>
+					 <form align="right" id="contactForm" method="post" {{ form_enctype(form) }}>
+                                            {{ form_widget(form) }}
+                                             {{ form_errors(form) }}
+
+                                             </br>
+                                            <input type="submit"  value="إرسال" class="btn btn-primary" />
+					<!-- ENDS form -->
+					
+					
+					<!-- contact sidebar -->
+		        	
+		        	<div class="clearfix"></div>
+					<!-- ENDS contact-sidebar -->
+					
+				</div>	        	
+	        	<!--  page content-->
+	        	
+	        	
+
+	        	
+			</div>
+		</div>
+		<!-- ENDS MAIN -->
+		
+		
+		<footer>
+			
+					
+					
+				<div class="footer-bottom">
+					<div class="left">Created by <a href="{{asset('http://www.luiszuno.com')}}" >luiszuno.com</a></div>
+					<div class="right">
+						<ul id="social-bar">
+							<li><a href="{{asset('http://www.facebook.com')}}"  title="Become a fan" class="poshytip"><img src="{{asset('bundles/fosefose/pages/img/social/facebook.png')}}"  alt="Facebook" /></a></li>
+							<li><a href="{{asset('http://www.twitter.com')}}" title="Follow my tweets" class="poshytip"><img src="{{asset('bundles/fosefose/pages/img/social/twitter.png')}}"  alt="twitter" /></a></li>
+							<li><a href="{{asset('http://www.google.com')}}"  title="Add to the circle" class="poshytip"><img src="{{asset('bundles/fosefose/pages/img/social/plus.png')}}" alt="Google plus" /></a></li>
+						</ul>
+					</div>
+				</div>
+				
+			
+		</footer>
+		
+		<!-- Start google map -->
+		<script>initialize();</script>	
+	
+{% endblock %}

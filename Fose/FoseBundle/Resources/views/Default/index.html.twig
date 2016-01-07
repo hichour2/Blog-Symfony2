@@ -1,0 +1,168 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+				<div class="header-right">
+					<div class="subscribe">
+						<a href="#"><span></span>إتصل بنا</a>
+					</div>
+					<div class="socials">
+						<a href="#" class="facebook-ico">facebook</a>
+						<a href="#" class="twitter-ico">twitter</a>
+					</div>
+					
+				</div>
+	<!-- wrapper -->
+	<div id="wrapper">
+		<!-- header -->
+		<div class="header">
+			<!-- shell -->
+			<div class="shell">
+			<h1 id="fose"><a href="#">cafe</a></h1>
+				<h1 id="logo"><a href="#">cafe</a></h1>
+			
+				
+				<!-- header-right -->
+
+				
+				<!-- end of header -->
+				<!-- navigation -->
+				
+        <nav id="navigation">
+                <ul>
+
+                    <li><a href="#">مواقع صديقة</a></li>
+                        <li><a href="#">فروع المؤسسة</a></li>
+                        <li><a href="#">أعضاء المكتب</a></li>
+                        <li><a href="#">معرض الصور</a></li>
+                        <li><a href="#">المخيم</a></li>
+                        <li><a href="#">آخر المستجدات</a></li>
+                        <li><a href="{{path('fose_accueil')}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الرئيسية&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                </ul>
+        </nav>
+        <!-- end of navigation -->
+        <!-- slider-holder -->
+        <div class="slider-holder">
+                <span class="left"></span>
+                <span class="right"></span>
+                <!-- flexslider -->
+                <div class="big-slider">
+                        <ul class="slides">
+                            
+                             {% for article in articles %}
+                   
+
+                                <li>
+                                    <img src="{{ asset(article.image.webPath) }}" alt="" align="right"/>
+                                        <div class="slide-cnt">
+                                                <h2 align="center">{{ article.titre }}</h2><br />
+                                                <p ><h3 align="center"> {{ article.extrai }}</h3>
+                                                <a href="#" class="red-btn" align="center">إقرأ المزيد</a></p>
+                                        </div>
+                                </li>
+                               
+                                {%endfor%}
+                        </ul>
+                </div>
+                <!-- end of flexslider -->
+        </div>
+        <!-- end of slider -->
+
+</div><div class="footer-nav"></div>
+			<!-- end of shell -->
+		</div>
+		<!-- end of header -->
+            
+		<!-- main -->
+		<div class="main">
+                    
+			<div class="shell">
+				<div class="cl">&nbsp;</div>
+				<div class="cl">&nbsp;</div>
+				<!-- content -->
+				
+				<!-- end of content -->
+				<!-- sidebar -->
+{% include "FoseFoseBundle:pages:sidebar2.html.twig" %}
+<div class="vertical-line" style="height: 1030px;"></div>
+
+
+
+                                <!-- affichage des article -->
+                                        <div class="content" align="right">
+        <h2  align="center"><font color="#990000">آخر المستجدات</font></h2></br></br></br></br>
+                                {% for article in articles %}
+			<div class="entry"><div class="tableau">
+	<table  height="200px" width="600px" border="0px">
+        <tr>
+                <td><div class="date">{% set day= article.datepub|date('d') %}
+                                       {% set Month     = article.datepub|date('F') %}
+                                         {% set Year = article.datepub|date('Y') %}
+            <strong>{{ '%s'|format(day) }}<small>{{ '%s'|format(Year) }}</small></strong>
+	    <em>{{ mafonction(article.datepub|date('F')) }}</em>
+                    </div></td>
+                <td></td>
+ <td align="center"><h3>&nbsp;&nbsp;&nbsp;{{ article.titre }}&nbsp;&nbsp;&nbsp;</h3><p>&nbsp;&nbsp;&nbsp;{{ article.extrai}} ...&nbsp;&nbsp;&nbsp;</p>
+          <a href="#" class="red-btn" align="center">إقرأ المزيد</a></p></td>
+ <div class="cnt">
+ <td align="right"><img
+src="{{ asset(article.image.webPath) }}"alt="{{ article.image.alt }}" height="120px" width="150px"/></td>
+ </tr></table></div>
+
+				
+ 
+  
+						
+                                {% if article.image is not null %}
+    
+						
+                                                   
+							
+							
+                                                       
+                   <hr align="center"  color="#CCCCCC" size="3px">
+			</div> {% endif %}{%endfor%}
+                                <!-- Pagination -->
+        <div class="pagination" align="center">
+                            <ul>
+                            {# On utilise la fonction range(a, b) qui crée un tableau de
+                            valeurs entre a et b #}
+                            {% for p in range(1, nombrePage) %}
+                            <li{% if p == page %} class="active"{% endif %}>
+                            <a href="{{ path('fose_accueil', {'page': p}) }}">{{ p
+                            }}</a>
+                            </li>
+                            {% endfor %}
+                            </ul>
+                            </div>
+                                        </div>
+                                       
+					
+                                        
+                                        
+                                        
+                                        
+				</div>
+			</div>
+		</div>
+		<!-- end of main -->
+		<div id="footer-push"></div>
+	</div>
+	<!-- end of wrapper -->
+	<div id="footer">
+		<div class="shell">
+			<div class="footer-nav">
+				<ul>
+                                    	 <li><a href="#">إتصل بنا </a></li>
+					 <li><a href="#">مواقع صديقة</a></li>
+						<li><a href="#">فروع المؤسسة</a></li>
+						<li><a href="#">أعضاء المكتب</a></li>
+						<li><a href="#">معرض الصور</a></li>
+						<li><a href="#">المخيم</a></li>
+						<li><a href="#">آخر المستجدات</a></li>
+						<li><a href="#">الرئيسية</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

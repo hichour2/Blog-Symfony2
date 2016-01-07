@@ -1,0 +1,91 @@
+fose_fose_homepae:
+    path:     /hello/{name}
+    defaults: { _controller: FoseFoseBundle:Default:index }
+fose_accueil:
+    path:     /{pages}
+    defaults: { _controller: FoseFoseBundle:Fose:index, pages:1 }
+    requirements:
+        page: \d*
+fose_blog:
+    path:     /blog/blog
+    defaults: { _controller: FoseFoseBundle:Fose:blog  }
+fose_diaporama:
+    path:     /blog/diapo
+    defaults: { _controller: FoseFoseBundle:Fose:diaporama }
+fose_contact:
+    path:     /blog/contact
+    defaults: { _controller: FoseFoseBundle:Fose:envoiemsg }
+fose_voir_article:
+    path:     /blog/article
+    defaults: { _controller: FoseFoseBundle:Fose:afficher }
+fose_ajouter_article:
+    path:     /blog/ajouter
+    defaults: { _controller: FoseFoseBundle:Fose:ajouter }
+
+fose_afficher_article:
+    path:     /blog/afficher/{page}
+    defaults: { _controller: FoseFoseBundle:Fose:afficherarticle, page:1 }
+    requirements:
+       page: \d*
+fose_ajouter_membre:
+    path:     /blog/ajoutermembre
+    defaults: { _controller: FoseFoseBundle:Fose:ajouterMembre }
+fose_ajouter_lien:
+    path:     /blog/ajouterlien
+    defaults: { _controller: FoseFoseBundle:Fose:ajouterlien }
+fose_editer_article:
+    path:     /blog/editerarticle/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:editerarticle }
+fose_suprimer_article:
+    path:     /blog/suprimerarticle/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:suprimerarticle }
+fose_afficher_lien:
+    path:     /blog/afficherlien/{page}
+    defaults: { _controller: FoseFoseBundle:Fose:afficherlien, page:1 }
+fose_editer_lien:
+    path:     /blog/editerlien/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:editerlien }
+fose_suprimer_lien:
+    path:     /blog/suprimerlien/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:suprimerlien }
+fose_afficher_msg:
+    path:     /blog/affichermsg/{page}
+    defaults: { _controller: FoseFoseBundle:Fose:affichermsg, page:1 }
+fose_suprimer_msg:
+    path:     /blog/suprimermsg/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:suprimermsg }
+fose_afficher_mbr:
+    path:     /blog/affichermbr/{page}
+    defaults: { _controller: FoseFoseBundle:Fose:affichermbr, page:1 }
+fose_editer_mbr:
+    path:     /blog/editermbr/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:editermbr }
+fose_suprimer_mbr:
+    path:     /blog/suppmbr/{id}
+    defaults: { _controller: FoseFoseBundle:Fose:suprimermbr }
+fose_pdf:
+    path:     /blog/pdf
+    defaults: { _controller: FoseFoseBundle:Fose:pdf }
+
+ 
+# Image upload
+kms_froala_editor_upload_image:
+    path: /upload_image
+    defaults: { _controller: FoseFoseBundle:Media:uploadImage }
+
+kms_froala_editor_delete_image:
+    path: /delete_image
+    defaults: { _controller: FoseFoseBundle:Media:deleteImage }
+
+kms_froala_editor_load_images:
+    path: /load_images
+    defaults: { _controller: FoseFoseBundle:Media:loadImages }
+
+# File upload
+kms_froala_editor_upload_file:
+    path: /upload_file
+    defaults: { _controller: FoseFoseBundle:Media:uploadFile }
+
+
+
+

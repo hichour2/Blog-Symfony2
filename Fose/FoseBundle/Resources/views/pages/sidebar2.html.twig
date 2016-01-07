@@ -1,0 +1,82 @@
+
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('bundles/fosefose/css/images/fose.png')}}" />
+<link rel="stylesheet" href="{{asset('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.12/themes/base/jquery-ui.css')}}">
+<script src="{{asset('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js')}}"></script>
+
+<aside id="sidebar"></br></br></br></br>
+                            <img   src="{{asset('bundles/fosefose/pages/img/foselogo.png')}}" 
+                                   width="280px" height="180px "alt="Fose Berkane" 
+                                   style=" float:right; margin-right: 10px;margin-top:-30px  " /></br>
+                            </br></br></br></br></br></br>
+
+	        		<ul>
+                                    
+                            <hr align="center"  color="#CCCCCC" size="3px" width="140%">
+
+                                    <div id="datepicker"></div>
+                                  </br></br>
+                                 <hr align="center"  color="#CCCCCC" size="3px" width="140%">
+		        		
+<script type="text/javascript" src="http://counter7.fcs.ovh/private/countertab.js?c=1907756d257a1e132a36eb373a3ff407"></script>
+<noscript>
+<a href="" title="compteur de visite">
+    <img src="http://counter7.fcs.ovh/private/compteurdevisite.php?c=1907756d257a1e132a36eb373a3ff407" border="0" title="compteur de visite" alt="compteur de visite"></a>
+</noscript>
+<hr align="center"  color="#CCCCCC" size="3px" width="140%">
+        <li class="block">
+                                           <br/>
+			        		<h4>CATEGORIES</h4>
+							<ul>
+								<li class="cat-item"><a href="#" title="View all posts">Film and video</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Print</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Photo and lomo</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Habitant morbi</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Film and video</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Print</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Photo and lomo</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">Habitant morbi</a></li>
+							</ul>
+		        		</li>
+		        		
+		        		<li class="block">
+			        		<h4>ARCHIVES</h4>
+							<ul>
+								<li class="cat-item"><a href="#" title="View all posts">January</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">February</a></li>
+								<li class="cat-item"><a href="#" title="View all posts">March</a></li>
+							</ul>
+		        		</li>
+	        		
+	        		</ul>
+	        		
+	        		<em id="corner"></em>
+	        	</aside>
+                                   <script>
+$(function(){
+  $.datepicker.regional['fr'] = {
+  closeText: 'Fermer',
+  prevText: 'Précédent',
+  nextText: 'Suivant',
+  currentText: 'Aujourd\'hui',
+  monthNames: ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'],
+  monthNamesShort: ['Janv.','Févr.','Mars','Avril','Mai','Juin','Juil.','Août','Sept.','Oct.','Nov.','Déc.'],
+  dayNames: ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'],
+  dayNamesShort: ['Dim.','Lun.','Mar.','Mer.','Jeu.','Ven.','Sam.'],
+  dayNamesMin: ['D','L','M','M','J','V','S'],
+  weekHeader: 'Sem.',
+  dateFormat: 'dd/mm/yy',
+  firstDay: 1,
+  isRTL: false,
+  showMonthAfterYear: false,
+  yearSuffix: ''};
+
+   
+	$.datepicker.setDefaults($.datepicker.regional['fr']);
+
+	 $( " #datepicker").datepicker();
+
+  });
+ 
+  
+</script>
+

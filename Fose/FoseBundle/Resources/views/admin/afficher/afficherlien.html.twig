@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+   
+    
+{% for lien in liens%}
+    
+    <table align="center" >
+        <tr>
+            <td><h1> {{ lien.nomLien }}</h1></td> <td><h3> {{ lien.url }}</h3></td><td><a href="{{ path('fose_editer_lien', {'id': lien.id} ) }}">Editer</td><td><a href="{{ path('fose_suprimer_lien', {'id':lien.id} ) }}">suprimer</td>
+      
+    
+        </tr>
+        
+    </table>
+ 
+
+{%endfor%}
+
+    <div class="pagination">
+<ul>
+{# On utilise la fonction range(a, b) qui crée un tableau de
+valeurs entre a et b #}
+{% for p in range(1, nombrePage) %}
+<li{% if p == page %} class="active"{% endif %}>
+<a href="{{ path('fose_afficher_article', {'page': p}) }}">{{ p }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}

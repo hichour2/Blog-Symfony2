@@ -1,0 +1,223 @@
+<?php
+
+namespace Fose\FoseBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * Fose\FoseBundle\Entity\Article
+ * @ORM\Table()
+ * @ORM\Entity
+*/
+class Article
+{
+    /**
+   * @ORM\Column(name="id", type="integer")
+   * @ORM\Id
+   * @ORM\GeneratedValue(strategy="AUTO")
+   */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+   * @ORM\Column(name="datepub", type="datetime")
+   */
+    private $datepub;
+
+    
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="contenue", type="text")
+     */
+    private $contenue;
+    
+    /**
+    * @ORM\OneToOne(targetEntity="Fose\FoseBundle\Entity\Image")
+    * @ORM\JoinTable(name="image_article")
+    */
+  private $image;
+    /**
+     * @ORM\OneToMany(targetEntity="Fose\FoseBundle\Entity\commentaire", mappedBy="article")
+     */
+  private $commentaires; // Ici commentaires prend un "s", car un article a plusieurs commentaires !
+  /**
+     * @ORM\ManyToOne(targetEntity="Fose\FoseBundle\Entity\article_cat")
+     */
+  private $cat_article;
+
+
+  public function __construct()
+    {
+    $this->datepub = new \Datetime();
+    }
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Article
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+    /**
+     * Set datepub
+     *
+     * @param \DateTime $datepub
+     *
+     * @return Article
+     */
+    public function setDatepub($datepub)
+    {
+        $this->datepub = $datepub;
+
+        return $this;
+    }
+
+    /**
+     * Get datepub
+     *
+     * @return \DateTime
+     */
+    public function getDatepub()
+    {
+        return $this->datepub;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param string $categorie
+     *
+     * @return Article
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return string
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set contenue
+     *
+     * @param string $contenue
+     *
+     * @return Article
+     */
+    public function setContenue($contenue)
+    {
+        $this->contenue = $contenue;
+
+        return $this;
+    }
+
+    /**
+     * Get contenue
+     *
+     * @return string
+     */
+    public function getContenue()
+    {
+        return $this->contenue;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \Fose\FoseBundle\Entity\Image $image
+     *
+     * @return Article
+     */
+    public function setImage(\Fose\FoseBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \Fose\FoseBundle\Entity\Image
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Add commentaire
+     *
+     * @param \Fose\FoseBundle\Entity\commentaire $commentaire
+     *
+     * @return Article
+     */
+    public function addCommentaire(\Fose\FoseBundle\Entity\commentaire $commentaire)
+    {
+        $this->commentaires[] = $commentaire;
+
+        return $this;
+    }
+
+    /**
+     * Remove commentaire
+     *
+     * @param \Fose\FoseBundle\Entity\commentaire $commentaire
+     */
+    public function removeCommentaire(\Fose\FoseBundle\Entity\commentaire $commentaire)
+    {
+        $this->commentaires->removeElement($commentaire);
+    }
+
+    /**
+     * Get commentaires
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCommentaires()
+    {
+        return $this->commentaires;
+    }
+}

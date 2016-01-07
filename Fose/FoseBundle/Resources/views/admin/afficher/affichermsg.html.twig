@@ -1,0 +1,32 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+   
+    
+{% for msg in msgs%}
+    
+    <table align="center" >
+        <tr>
+            <td><h1> {{ msg.nomVisiteur }}</h1></td> <td><h3> {{ msg.contenueMsg }}</h3></td>
+                <td><h1> {{ msg.dateEnvoie|date('d-F-Y') }}</h1></td> <td><h3> {{ msg.email }}</h3></td>
+<td><a href="{{ path('fose_suprimer_msg', {'id':msg.id} ) }}">suprimer</td>
+      
+        </tr>
+        
+    </table>
+ 
+
+{%endfor%}
+
+    <div class="pagination">
+<ul>
+{# On utilise la fonction range(a, b) qui crée un tableau de
+valeurs entre a et b #}
+{% for p in range(1, nombrePage) %}
+<li{% if p == page %} class="active"{% endif %}>
+<a href="{{ path('fose_afficher_article', {'page': p}) }}">{{ p }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}

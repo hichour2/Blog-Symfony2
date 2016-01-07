@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Content editable false manual test</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+<!--
+<script type="text/javascript">less = {env: "development", async: false};</script>
+<link rel="stylesheet/less" type="text/css" href="../../js/tinymce/skins/lightgray/skin.dev.less">
+<script src="../../node_modules/less/dist/less-1.4.2.min.js"></script>
+-->
+<script src="../../../../web/bundles/fosefose/editeur/tinymce/js/tinymce/tinymce.dev.js"></script>
+<script src="../../../../web/bundles/fosefose/editeur/tinymce/js/tinymce/plugins/table/plugin.dev.js"></script>
+<script src="../../../../web/bundles/fosefose/editeur/tinymce/js/tinymce/plugins/paste/plugin.dev.js"></script>
+<script src="../../../../web/bundles/fosefose/editeur/tinymce/js/tinymce/plugins/spellchecker/plugin.dev.js"></script>
+<script>
+	tinymce.init({
+		selector: "textarea#elm1",
+		plugins: [
+			"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+			"save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern codesample"
+		],
+		add_unload_trigger: false,
+		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons table codesample",
+		content_css: 'css/content_editable.css',
+		height: 400
+	});
+
+	tinymce.init({
+		selector: "#elm2",
+		inline: true,
+		plugins: [
+			"advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker",
+			"searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
+			"save table contextmenu directionality emoticons template paste textcolor colorpicker textpattern codesample"
+		],
+		add_unload_trigger: false,
+		toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons table codesample",
+		content_css: 'css/content_editable.css'
+	});
+
+	if (!window.console) {
+		window.console = {
+			log: function() {
+				tinymce.$('<div></div>').text(tinymce.grep(arguments).join(' ')).appendTo(document.body);
+			}
+		};
+	}
+
+	function paintClientRect(rect, color, id) {
+		var editor = tinymce.activeEditor,
+			$ = editor.$,
+			rectDiv,
+			viewPort = editor.dom.getViewPort();
+
+		if (!rect) {
+			return;
+		}
+
+		color = color || 'red';
+		id = id || color;
+		rectDiv = $('#' + id);
+
+		if (!rectDiv[0]) {
+			rectDiv = $('<div></div>').appendTo(editor.getBody());
+		}
+
+		rectDiv.attr('id', id).css({
+			position: 'absolute',
+			left: (rect.left + viewPort.x) + 'px',
+			top: (rect.top + viewPort.y) + 'px',
+			width: (rect.width || 1) + 'px',
+			height: rect.height + 'px',
+			background: color,
+			opacity: 0.8
+		});
+	}
+
+	function paintClientRects(rects, color) {
+		tinymce.each(rects, function(rect, index) {
+			paintClientRect(rect, color, color + index);
+		});
+	}
+
+	function logPos(caretPosition) {
+		var container = caretPosition.container(),
+			offset = caretPosition.offset();
+
+		if (container.nodeType == 3) {
+			if (container.data[offset]) {
+				console.log(container.data[offset]);
+			} else {
+				console.log('<end of text node>');
+			}
+		} else {
+			console.log(container, offset, caretPosition.getNode());
+		}
+	}
+</script>
+</head>
+<body>
+<form method="post" action="http://www.tinymce.com/dump.php?example=true">
+	<div>
+		<div>
+			<textarea id="elm1" name="elm1" rows="15" cols="80" style="width: 80%">
+			</textarea>
+		</div>
+
+		
+	</div>
+</form>
+
+</body>
+</html>
