@@ -1,9 +1,0 @@
-services:
-#    fose_fose.example:
-#        class: Fose\FoseBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
-services:
-    twig.extension.intl:
-        class: Twig_Extensions_Extension_Intl
-        tags:
-            - { name: twig.extension }

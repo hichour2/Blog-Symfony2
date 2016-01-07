@@ -28,16 +28,7 @@
 				<!-- navigation -->
 				
         <nav id="navigation">
-                <ul>
-
-                    <li><a href="#">مواقع صديقة</a></li>
-                        <li><a href="#">فروع المؤسسة</a></li>
-                        <li><a href="#">أعضاء المكتب</a></li>
-                        <li><a href="#">معرض الصور</a></li>
-                        <li><a href="#">المخيم</a></li>
-                        <li><a href="#">آخر المستجدات</a></li>
-                        <li><a href="{{path('fose_accueil')}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الرئيسية&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
-                </ul>
+                Your menu here
         </nav>
         <!-- end of navigation -->
         <!-- slider-holder -->
@@ -56,7 +47,7 @@
                                         <div class="slide-cnt">
                                                 <h2 align="center">{{ article.titre }}</h2><br />
                                                 <p ><h3 align="center"> {{ article.extrai }}</h3>
-                                                <a href="#" class="red-btn" align="center">إقرأ المزيد</a></p>
+                                                <a href="#" class="red-btn" align="center">learn more</a></p>
                                         </div>
                                 </li>
                                
@@ -89,7 +80,7 @@
 
                                 <!-- affichage des article -->
                                         <div class="content" align="right">
-        <h2  align="center"><font color="#990000">آخر المستجدات</font></h2></br></br></br></br>
+        <h2  align="center"><font color="#990000"></font></h2></br></br></br></br>
                                 {% for article in articles %}
 			<div class="entry"><div class="tableau">
 	<table  height="200px" width="600px" border="0px">
@@ -102,7 +93,7 @@
                     </div></td>
                 <td></td>
  <td align="center"><h3>&nbsp;&nbsp;&nbsp;{{ article.titre }}&nbsp;&nbsp;&nbsp;</h3><p>&nbsp;&nbsp;&nbsp;{{ article.extrai}} ...&nbsp;&nbsp;&nbsp;</p>
-          <a href="#" class="red-btn" align="center">إقرأ المزيد</a></p></td>
+          <a href="#" class="red-btn" align="center"></a></p></td>
  <div class="cnt">
  <td align="right"><img
 src="{{ asset(article.image.webPath) }}"alt="{{ article.image.alt }}" height="120px" width="150px"/></td>
@@ -150,18 +141,7 @@ src="{{ asset(article.image.webPath) }}"alt="{{ article.image.alt }}" height="12
 	<!-- end of wrapper -->
 	<div id="footer">
 		<div class="shell">
-			<div class="footer-nav">
-				<ul>
-                                    	 <li><a href="#">إتصل بنا </a></li>
-					 <li><a href="#">مواقع صديقة</a></li>
-						<li><a href="#">فروع المؤسسة</a></li>
-						<li><a href="#">أعضاء المكتب</a></li>
-						<li><a href="#">معرض الصور</a></li>
-						<li><a href="#">المخيم</a></li>
-						<li><a href="#">آخر المستجدات</a></li>
-						<li><a href="#">الرئيسية</a></li>
-				</ul>
-			</div>
+			
 		</div>
 	</div>
 
